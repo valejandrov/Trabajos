@@ -8,9 +8,9 @@ public class ControlIngresoCam extends Control{
     }
     
     //Excepción para validación del campo Marca
-    public void validarCamaraCodigo(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraCodigo(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Código: Campo vacio");
         
         switch (validarCodigo(txt)) {
@@ -32,24 +32,24 @@ public class ControlIngresoCam extends Control{
     }
     
     //Excepción para validación del campo Modelo
-    public void validarCamaraModelo(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraModelo(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Modelo: Campo vacio");
         
         //interior 3434
         //Buscamos un espacio
         String comparar1,comparar2;
         
-        if( txt.getText().indexOf(' ') == -1)
+        if( txt.indexOf(' ') == -1)
             throw new Excepciones("Modelo: No se ingresaron dos palabras");
         
-        comparar1 = txt.getText().substring(0,txt.getText().indexOf(' '));
+        comparar1 = txt.substring(0,txt.indexOf(' '));
         
         if(!(comparar1.equals("Interior") || comparar1.equals("Exterior")))
             throw new Excepciones("Modelo: Debe comenzar con la palabra Interior o Exterior");
         
-        comparar2 = txt.getText().substring(txt.getText().indexOf(' ')+1,txt.getText().length());
+        comparar2 = txt.substring(txt.indexOf(' ')+1,txt.length());
         
         if(comparar2.length() == 0 )
             throw new Excepciones("Modelo: Ingrese la segunda palabra");
@@ -68,37 +68,37 @@ public class ControlIngresoCam extends Control{
     }
     
     //Excepción para validación del campo Giro
-    public void validarCamaraGiro(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraGiro(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Giro: Campo vacio");
         
-        for( int i = 0 ; i < txt.getText().length() ; i++)
-            if( !Character.isDigit( txt.getText().charAt(i) ))
+        for( int i = 0 ; i < txt.length() ; i++)
+            if( !Character.isDigit( txt.charAt(i) ))
                 throw new Excepciones("Giro: Ingresar sólo números");
         
-        if( !((Integer.parseInt(txt.getText()) >= 0) && (Integer.parseInt(txt.getText()) <= 360)))
+        if( !((Integer.parseInt(txt) >= 0) && (Integer.parseInt(txt) <= 360)))
             throw new Excepciones("Giro: Ingresar un número entre 0 y 360");
     }
     
     //Excepción para validación del campo MegaPixeles
-    public void validarCamaraMegaPixeles(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraMegaPixeles(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Megapixeles: Campo vacio");
         
-        for( int i = 0 ; i < txt.getText().length() ; i++)
-            if( !Character.isDigit( txt.getText().charAt(i) ))
-                if(txt.getText().charAt(i) != '.')
+        for( int i = 0 ; i < txt.length() ; i++)
+            if( !Character.isDigit( txt.charAt(i) ))
+                if(txt.charAt(i) != '.')
                     throw new Excepciones("Megapixeles: Ingresar un número decimal positivo");
         
         int contadorDePuntos = 0;
         
-        if((txt.getText().charAt(0) == '.') )
+        if((txt.charAt(0) == '.') )
             throw new Excepciones("Megapixeles: El primer dato debe ser un número");
         
-        for( int i = 0 ; i < txt.getText().length() ; i++)
-            if( txt.getText().charAt(i) == '.' )
+        for( int i = 0 ; i < txt.length() ; i++)
+            if( txt.charAt(i) == '.' )
                 contadorDePuntos++;
             
         if(contadorDePuntos>1)
@@ -106,29 +106,29 @@ public class ControlIngresoCam extends Control{
         
         Double numero;
                 
-        numero = Double.valueOf(txt.getText());
+        numero = Double.valueOf(txt);
         if( !(numero >= 5.0 && numero <= 16.3))
                 throw new Excepciones("Megapixeles: Ingresar un número decimal positivo entre 5.0 y 16.3");
     }
 
     //Excepción para validación del campo Alcance Wifi
-    public void validarCamaraAlcanceWifi(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraAlcanceWifi(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Alcance Wifi: Campo vacio");
         
-        for( int i = 0 ; i < txt.getText().length() ; i++)
-            if( !Character.isDigit( txt.getText().charAt(i) ))
-                if(txt.getText().charAt(i) != '.')
+        for( int i = 0 ; i < txt.length() ; i++)
+            if( !Character.isDigit( txt.charAt(i) ))
+                if(txt.charAt(i) != '.')
                     throw new Excepciones("Alcance Wifi: Ingresar un número decimal positivo");
         
         int contadorDePuntos = 0;
         
-        if((txt.getText().charAt(0) == '.') )
+        if((txt.charAt(0) == '.') )
             throw new Excepciones("Alcance Wifi: El primer dato debe ser un número");
         
-        for( int i = 0 ; i < txt.getText().length() ; i++)
-            if( txt.getText().charAt(i) == '.' )
+        for( int i = 0 ; i < txt.length() ; i++)
+            if( txt.charAt(i) == '.' )
                 contadorDePuntos++;
             
         if(contadorDePuntos>1)
@@ -136,28 +136,28 @@ public class ControlIngresoCam extends Control{
         
         Double numero;
                 
-        numero = Double.valueOf(txt.getText());
+        numero = Double.valueOf(txt);
         if( !(numero >= 3.0 && numero <= 14.0))
                 throw new Excepciones("Alcance Wifi: Ingresar un número decimal positivo entre 3.0 y 14.0");
     }    
     
     //Excepción para validación del campo Valor
-    public void validarCamaraValor(javax.swing.JTextField txt) throws Excepciones{
+    public void validarCamaraValor(String txt) throws Excepciones{
         
-        if(txt.getText().isEmpty())
+        if(txt.isEmpty())
             throw new Excepciones("Valor: Campo vacio");
         
         if(!this.valorValidoDecimal(txt))
             throw new Excepciones("Valor: El valor debe comenzar con un número y contener sólo un punto decimal");
         
-        if( (Double.parseDouble( txt.getText() )) < 100 )
+        if( (Double.parseDouble( txt )) < 100 )
             throw new Excepciones("Valor: El valor debe ser mayor a 100");
             
         
     }
     
     //Método para validar el codigo
-    private int validarCodigo(javax.swing.JTextField txt){
+    private int validarCodigo(String txt){
         
         int contadorMayusculas = 0;
         int contadorNumeros = 0;
@@ -168,27 +168,27 @@ public class ControlIngresoCam extends Control{
         
         
         //Validando 7 caracteres
-        if(txt.getText().length() != 7)
+        if(txt.length() != 7)
             return 1;
         
         //Validando letras y dígitos
-        for( int i = 0 ; i < txt.getText().length() ; i++){
-            if( !Character.isLetterOrDigit(txt.getText().charAt(i)) )
+        for( int i = 0 ; i < txt.length() ; i++){
+            if( !Character.isLetterOrDigit(txt.charAt(i)) )
                 return 2; //tiene caracteres especiales
         }
         
         //Validando las 4 letras mayúsculas y 2 vocales y 2 consontantes
-        for( int i = 0 ; i < txt.getText().length() ; i++){
-            if( Character.isUpperCase(txt.getText().charAt(i)) )
+        for( int i = 0 ; i < txt.length() ; i++){
+            if( Character.isUpperCase(txt.charAt(i)) )
             {
                 contadorMayusculas++;
-                if(esVocal(txt.getText().charAt(i))){
+                if(esVocal(txt.charAt(i))){
                     contadorVocales++;
-                    vocales[contadorVocales-1]=txt.getText().charAt(i);
+                    vocales[contadorVocales-1]=txt.charAt(i);
                 }
                 else{
                     contadorConsonantes++;
-                    consonantes[contadorConsonantes-1]=txt.getText().charAt(i);
+                    consonantes[contadorConsonantes-1]=txt.charAt(i);
                 }
             }
         }
@@ -203,10 +203,10 @@ public class ControlIngresoCam extends Control{
         char numeros[] = new char[4]; //Si llegó hasta aquí es porque tenemos 3 números
         
         //Validando los 3 numeros
-        for( int i = 0 ; i < txt.getText().length() ; i++){
-            if( esNumero(txt.getText().charAt(i)) ){
+        for( int i = 0 ; i < txt.length() ; i++){
+            if( esNumero(txt.charAt(i)) ){
                 contadorNumeros++;
-                numeros[contadorNumeros] = txt.getText().charAt(i); 
+                numeros[contadorNumeros] = txt.charAt(i); 
             }
         }
         contadorNumeros = 0;

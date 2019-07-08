@@ -380,47 +380,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         boolean banderaCamValidada = true;
                
         try{
-                ctrlCam1.validarCamaraCodigo(txtcam_codigo);
+                ctrlCam1.validarCamaraCodigo(txtcam_codigo.getText());
+                ctrlCam1.validarCamaraModelo(txtcam_modelo.getText());
+                ctrlCam1.validarCamaraGiro(txtcam_giro.getText());
+                ctrlCam1.validarCamaraMegaPixeles(txtcam_megaPixeles.getText());
+                ctrlCam1.validarCamaraAlcanceWifi(txtcam_alcanceWifi.getText());
+                ctrlCam1.validarCamaraValor(txtcam_valor.getText());
+                
         }catch(Excepciones e){
             banderaCamValidada = false;
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        
-        try{
-                ctrlCam1.validarCamaraModelo(txtcam_modelo);
-        }catch(Excepciones e){
-            banderaCamValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrlCam1.validarCamaraGiro(txtcam_giro);
-        }catch(Excepciones e){
-            banderaCamValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrlCam1.validarCamaraMegaPixeles(txtcam_megaPixeles);
-        }catch(Excepciones e){
-            banderaCamValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrlCam1.validarCamaraAlcanceWifi(txtcam_alcanceWifi);
-        }catch(Excepciones e){
-            banderaCamValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrlCam1.validarCamaraValor(txtcam_valor);
-        }catch(Excepciones e){
-            banderaCamValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
+          
         if(banderaCamValidada){
                                             
             // Si pasa las validaciones --> cargar producto
@@ -446,41 +417,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         boolean banderaTvValidada = true;
                
         try{
-                ctrl1.validarTelevisorMarca(txttv_marca);
+                ctrl1.validarTelevisorMarca(txttv_marca.getText());
+                ctrl1.validarTelevisorModelo(txttv_modelo.getText());
+                ctrl1.validarTelevisorPulgadas(txttv_pulgadas.getText());
+                ctrl1.validarTelevisorEmpresaCable(txttv_empresaCable.getText());
+                ctrl1.validarTelevisorValor(txttv_valor.getText());
         }catch(Excepciones e){
             banderaTvValidada = false;
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        
-        try{
-                ctrl1.validarTelevisorModelo(txttv_modelo);
-        }catch(Excepciones e){
-            banderaTvValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrl1.validarTelevisorPulgadas(txttv_pulgadas);
-        }catch(Excepciones e){
-            banderaTvValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrl1.validarTelevisorEmpresaCable(txttv_empresaCable);
-        }catch(Excepciones e){
-            banderaTvValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        try{
-                ctrl1.validarTelevisorValor(txttv_valor);
-        }catch(Excepciones e){
-            banderaTvValidada = false;
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        
+ 
+       
         if(banderaTvValidada){
                                             
                 // Si pasa las validaciones --> cargar producto
