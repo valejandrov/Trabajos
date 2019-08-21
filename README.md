@@ -1,5 +1,7 @@
-# TrabajosPracticos
-Proyectos realizados
+# Ejercicios varios resueltos
 
 Hola,
-estoy programando en Java, y entusiasmado por continuar por este fabuloso mundo de la programción.
+en este repositorio encontrarás varios ejercicios resueltos, por ejemplo de la web hackerrank, de libros libros, etc.
+Espero que sean de utilidad para tu aprendizaje.
+
+Alejandro
