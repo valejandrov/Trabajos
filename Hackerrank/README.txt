@@ -1,1 +1,0 @@
-In this folder will find exercices of hackrrank site.
